@@ -1,0 +1,384 @@
+h1,
+h2,
+h3 {
+  font-family: $font-title;
+}
+a{
+  text-decoration: none;
+}
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+h1{
+  font-size: 55px;
+}
+.section-title{
+  font-size:10vh;
+}
+p {
+  font-family: $font-content;
+}
+ul{
+  list-style: none;
+}
+.hero {
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  h1{
+    font-size:10vh;
+  }
+  //background-attachment: fixed;
+}
+
+.badge-circle {
+  vertical-align: middle;
+  width: 100%;
+  height: auto;
+  will-change: transform;
+  -webkit-animation: rotation 30s linear infinite;
+  -o-animation: rotation 30s infinite linear;
+  animation: rotation 30s linear infinite;
+}
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+.product-card-img{
+  height: 500px;
+  //width: 367.98px;
+  border-radius: 800px;
+}
+
+
+.btn-product-card{
+  border:none;
+  padding:0.8em 1.5em 0.9em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  font-family: $font-buttons;
+  letter-spacing: 2px;
+  font-size: 16px;
+  a{
+    color:#fff;
+  }
+}
+.image-bg{
+  //background-image: url('C:/Users/Jeloska Chavez/proyecto final/FRONTEND-NODE-VUE-es-boilerplate-vue/src/assets/images/sobre-nosotros-1.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+}
+.btn-nav{
+  background-color: black;
+  border:none;
+  padding:0.8em 3em 0.9em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  font-family: $font-buttons;
+  letter-spacing: 3px;
+  font-size: 18px;
+  color: white;
+  a{
+    color: white;
+  }
+  
+  
+}
+
+.sabores{
+  font-weight: bold;
+  font-family: $font-buttons;
+  letter-spacing: 4px;
+  padding: 50px;
+  font-size: 20px;
+  transition: 0.3s;
+}
+.sabores-list{
+  margin-top: 15px;
+  list-style:none;
+  font-family: $font-title;
+  font-size: 35px;
+  padding-left: 0px;
+  li{
+    padding-bottom: 20px;
+  }
+  a{
+    color: black;
+    text-decoration:none;
+    
+  }
+  a:hover{
+    color: #fff;
+  }
+  
+  
+}
+.recipe-card-img{
+  width: 380px;
+  height: 472.625px;
+  
+}
+.btn-recipe-card{
+  border:none;
+  padding:0.8em 1.5em 0.9em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  font-family: $font-buttons;
+  letter-spacing: 2px;
+  font-size: 16px;
+  background-color: black;
+  color: white;
+  
+}
+.btn-recipe-card:hover{
+  background-color: white;
+  color: black;
+}
+.input-email{
+  outline: 0;
+  background-color: transparent;
+  border-width: 0 0 1px;
+  border-color: black;
+  color: black;
+  padding-right: 80px;
+}
+::placeholder {
+  color: black;
+}
+input[type=checkbox], input[type=radio] {
+  content:"";
+  padding: 0;
+  
+}
+.send-mail{
+  font-size: 20px;
+}
+.send-mail:hover{
+  color:#fff;
+}
+.social-media-list{
+  
+  padding-left: 0px;
+  li{
+    display:inline;
+    font-size: 25px;
+    margin-right: 20px;
+  }
+  
+}
+.list-footer-products{
+  padding-left: 0px;
+  font-family: $font-buttons;
+  letter-spacing: 2px;
+  font-size: 16px;
+
+  li{
+    padding-bottom: 8px;
+    margin-right: 20px;
+  }
+  a{
+    text-decoration: none;
+    color: black;
+    display: block;
+    position: relative;
+    padding: 0.2em 0;
+    overflow: hidden;
+  }
+  a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background-color: black;
+    opacity: 1;
+    transition: opacity 300ms, transform 300ms;
+    transform: translate3d(-100%, 0, 0);
+  }
+  
+  a:hover::after,
+  a:focus::after {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  
+  
+}
+.about-us-section{
+  h1{
+    font-size: 70px;
+  }
+}
+
+.about-us-img{
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  background-attachment: fixed;
+}
+.step{
+        border-bottom-width: 0.5px;
+        border-bottom-style: solid;
+        border-bottom-color: #000;
+  
+
+}
+.navbar{
+  background-color: #ed7b49;
+  border-bottom-width: 0.5px;
+  border-bottom-style: solid;
+  border-bottom-color: #000;
+}
+.navbar, .offcanvas-title{
+  
+  text-transform: uppercase;
+  font-family: $font-content;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 13px;
+    
+}
+.nav-link{
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  display: block;
+  position: relative;
+  padding: 0.2em 0;
+  overflow: hidden;
+  
+
+}
+.gift-card-hero{
+  background-image: url('https://static.wildsouls.gr/app/uploads/2021/12/wildsouls_build_your_gift-2000x956.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 60vh;
+  
+}
+.gift-card-title{
+  border-top-right-radius: 100px;
+  margin-top: 50vh;
+  
+  
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.2em;
+  background-color: black;
+  opacity: 1;
+  transition: opacity 300ms, transform 300ms;
+  transform: translate3d(-100%, 0, 0);
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.categories-menu-item{
+  color:#000;
+  
+  
+}
+.categories-menu-item:hover{
+  color: #fff;
+}
+.category-hero{
+  background-image: url('https://static.wildsouls.gr/app/uploads/2020/10/melia-2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 60vh;
+  
+}
+.category-title{
+  border-top-right-radius: 150px;
+  margin-top: 50vh;
+  
+  
+}
+
+.product-img{
+  height: 45vh;
+  border-radius: 50% 20% / 10% 40%;
+}
+.btn-product{
+  border:none;
+  padding:0.8em 1.5em 0.9em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  font-family: $font-buttons;
+  letter-spacing: 2px;
+  font-size: 15px;
+  background-color: #000;
+  color: #fff;
+}
+.product-img-info{
+  height: 500px;
+  border-radius: 800px;
+}
+
+.btn-product-buy{
+  border:none;
+  padding:1em 2em 1em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  font-family: $font-buttons;
+  font-size: 16px;
+  letter-spacing: 2px;
+  background-color: #000;
+  color: #fff;
+}
+
+
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center center;
+}
+
+
+.ingredient{
+
+  font-family: 'Roboto Mono', monospace;
+  letter-spacing: 1px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.search, .message-input{
+  background-color: rgba(255,255,255,.3);
+  outline: 0;
+  border-color: transparent;
+}
+.amount{
+  background-color: rgba(255,255,255,.3);
+  outline: 0;
+  border-color: transparent;
+  height: 40px;
+  width: 40px;
+  padding: 10px;
+}

@@ -1,0 +1,82 @@
+
+{
+    "recipes": [
+    
+      {
+        "id": 1,
+        "recipe_name": "Ensalada de Col con Tahini alto en fibra",
+        "recipe_category": "SALADO",
+        "recipe_preparation_time":"20 Minutos",
+        "recipe_portions": "4 porciones",
+        "recipe_difficult": "1/5",
+        "recipe_ingredients": ["50 g de pimientos rojos cortados en juliana", "50 g de pimientos amarillos cortados en juliana", "280 g de col blanca cortada en juliana", "130 g de col roja cortada en juliana", "30 g de vinagre balsámico blanco", "50 g de tahini alto en fibra 200g de quinoa cocida", "4 cucharadas de aceite de sésamo", "20 g de sésamo", "Sal y pimienta", "1 cebolleta finamente picada (para la guarnición)"],
+        "recipe_instructions": ["Mezcle todos los ingredientes y para un sabor óptimo déjelo reposar durante 1-2 horas.", "¡Cubra con las cebolletas y disfrute!"],
+        "recipe_image": "https://static.wildsouls.gr/app/uploads/2020/10/taxini-futikes-ines-MB.jpg",
+        "recipe_products_in_use": ["413", "213", "408"]
+      },
+      {
+        "id": 2,
+        "recipe_name": "Bowl de mantequilla de maní",
+        "recipe_category": "DULCE",
+        "recipe_preparation_time": "10 Minutos",
+        "recipe_portions": "2 porciones",
+        "recipe_difficult": "1/5",
+        "recipe_ingredients": ["4 plátanos congelados cortados en rodajas", "2 vasos de leche vegetal", "2 cucharaditas de cacao crudo en polvo", "3 cucharadas de mantequilla de maní (alrededor de 60 g)", "1 cucharadita de extracto de vainilla", "1 cucharada de mermelada de frutas del bosque"],
+        "recipe_instructions": ["Licúa todos los ingredientes hasta lograr una textura de batido.", "Servir en un bol y decóralo como más te guste."],
+        "recipe_image": "https://www.wildsouls.gr/app/uploads/2020/10/fistikovouturoTHUMB-1-600x746.jpg",
+        "recipe_products_in_use": ["222", "448"]
+      },
+      {
+        "id": 3,
+        "recipe_name": "Hummus",
+        "recipe_category": "SALADO",
+        "recipe_preparation_time": "10 Minutos",
+        "recipe_portions": "2 porciones",
+        "recipe_difficult": "1/5",
+        "recipe_ingredients": ["100 g de garbanzos", "100 g o 2 cucharadas de Tahini orgánico", "1/2 jugo de limón", "1/2 ajo en polvo", "4 cucharadas de aceite de sésamo", "6 cucharadas de agua fría", "1/2 cucharadita de comino en polvo", "1/2 cucharadita de pimentón dulce", "1 cebolla tierna picada finamente", "1 zanahoria mediana cortada en rodajas en cubos", "2 cucharadas de flores de alcaparras", "Sal-pimienta", "Sésamo"],
+        "recipe_instructions": ["Remoje los garbanzos durante la noche con 1 cucharadita de bicarbonato de sodio.", "Al día siguiente, escúrralos y lávelos.", "Hervirlas hasta que estén blandas (45 min-1 hora)", "Aplasta los garbanzos con un tenedor, hasta que quede un puré.", "Picar finamente la cebolla, la zanahoria y las flores de alcaparras.", "Agregue los ingredientes restantes excepto la zanahoria y la cebolla y mezcle.", "Por último, pero no menos importante, agregue los cubos de zanahoria y la cebolla y combine.", "Es el relleno perfecto para tu sándwich."],
+        "recipe_image": "https://static.wildsouls.gr/app/uploads/2020/10/taxini-viologikoMB.jpg",
+        "recipe_products_in_use": ["213", "411"]
+      },
+
+      {
+        "id": 4,
+        "recipe_name": "Mayonesa Con Mantequilla de anacardos",
+        "recipe_category": "SALADO",
+        "recipe_preparation_time": "5 Minutos",
+        "recipe_portions": "10 porciones",
+        "recipe_difficult": "1/5",
+        "recipe_ingredients": ["260 g de mantequilla de anacardo", "3 cucharadas de jugo de limón", "1 cucharada de vinagre de sidra de manzana", "2 cucharadas de mostaza", "1/2 cucharadita de sal", "2 cucharaditas de aceite de sésamo", "1/2 taza de agua"],
+        "recipe_instructions": ["Coloque todos los ingredientes en una licuadora y Licúe hasta que quede cremoso.", "Guárdelo en un frasco sellado o Tupperware.", "Se puede refrigerar hasta por 5 días." ],
+        "recipe_image": "https://static.wildsouls.gr/app/uploads/2020/10/kasiousTHUMB-1.jpg",
+        "recipe_products_in_use": ["213", "449"]
+      },
+
+      {
+        "id": 5,
+        "recipe_name": "Granola silvestre de 6 ingredientes",
+        "recipe_category": "DULCE",
+        "recipe_preparation_time": "50 Minutos",
+        "recipe_portions": "1 porción",
+        "recipe_difficult": "1/5",
+        "recipe_ingredients": ["2 tazas de copos de avena", "2 tazas de nueces ( almendras y semillas de girasol)", "1 cucharada de sésamo", "50 g de arándanos", "50 g de dátiles", "50 g de coco rallado", "5 cucharadas de Honey Tahini", "1 cucharadita de canela"],
+        "recipe_instructions": ["En un tazón grande de vidrio, combine los copos de avena, las nueces, la canela y revuelva.", "Agregue Tahini de miel y mezcle bien.", ":Disponer la mezcla en una bandeja para horno y hornear en horno precalentado durante 20 minutos a 150°C.", "Después de 20 minutos, retire del horno, mezcle y vuelva a colocar por otros 20 minutos.", "Retire del horno y antes de que se enfríe, agregue los ingredientes restantes.", "Al servir, puedes agregar un poco de miel extra."],
+        "recipe_image": "https://static.wildsouls.gr/app/uploads/2020/10/taxini-meliMB.jpg",
+        "recipe_products_in_use": ["401", "446", "408", "400"]
+      },
+      {
+        "id": 6,
+        "recipe_name": "Guacamole de Tahini",
+        "recipe_category": "SALADO",
+        "recipe_preparation_time": "10 Minutos",
+        "recipe_portions": "2 porciones",
+        "recipe_difficult": "1/5",
+        "recipe_ingredients": ["2 cucharadas de Tahini (40 g)", "Jugo de 1 limón pequeño", "1 aguacate maduro grande", "8 tomates cherry cortados en trozos pequeños", "1 cucharada de cebolla, finamente picada", "1 cucharada de cebolleta, finamente picada", "1 cucharada de perejil fresco, finamente picado", "Sal/pimienta", "2 cucharadas de aceite de sésamo"],
+        "recipe_instructions": ["En una licuadora, mezcle el aguacate, el jugo de limón y el aceite de sésamo hasta que quede suave.", "Vierta la mezcla en un tazón, agregue los ingredientes restantes y mezcle bien.", "Refrigere por lo menos 1 hora hasta que los sabores se combinen.", "Disfrútelo como un aderezo para sus tortillas o vegetales crujientes o incluso como relleno de un delicioso sándwich."],
+        "recipe_image": "https://www.wildsouls.gr/app/uploads/2020/10/taxiniMB-600x487.jpg",
+        "recipe_products_in_use": ["474", "213"]
+      }
+     
+     
+    ]
+  }
