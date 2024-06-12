@@ -1,0 +1,9 @@
+[
+    { "id": 1, "category_name": "Miel y aceites", "description": "Diversas mieles hechas con ingredientes naturales y aceites naturales." },
+    { "id": 2, "category_name": "Mermeladas", "description": "Mermeladas elaboradas a base de ingredientes naturales" },
+    { "id": 3, "category_name": "Mantequilla de Sésamo/Tahini", "description": "Amplia gama de tahini a base de sésamo" },
+    { "id": 4, "category_name": "Mantequillas de Nueces", "description": "Diversas mantequillas de nueces acompañadas de ingredientes naturales" },
+    { "id": 5, "category_name": "Halva", "description": "Variedades de dulces basados en pasta de sésamo." },
+    { "id": 6, "category_name": "Nueces Secas", "description": "Amplia variedad de nueces secas." }
+]
+  

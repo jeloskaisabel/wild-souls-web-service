@@ -75,9 +75,11 @@
     </div>
   </div>
 </template>
+
 <script>
 import json from '../recipes.json';
 import { api } from '@/config/site.config';
+
 export default {
   name: 'RecetaPage',
   props: ['id'],
@@ -87,21 +89,20 @@ export default {
       productsInUse: [],
     };
   },
-  methods: {},
-  computed: {},
-  watch: {},
-  created() {},
-  mounted() {
-    window.scrollTo({top:0, behavior: 'smooth'});
-    for (let x in this.recipe.recipe_products_in_use)
-      api
-        .get('products/getProduct/' + this.recipe.recipe_products_in_use[x])
-        .then((response) => this.productsInUse.push(response.data.product));
+  methods: {
+    loadProductsInUse() {
+      for (let productId of this.recipe.recipe_products_in_use) {
+        api.get('products/getProduct/' + productId)
+          .then((response) => {
+            this.productsInUse.push(response.data.product);
+          });
+      }
+    }
   },
-
-  // Se pueden utilizar estos hooks para el ciclo de vida
-  // beforeCreate, created, beforeMount, mounted, beforeUpdate, updated
-  // activated, deactivated, beforeUnmount, unmounted
+  mounted() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    this.loadProductsInUse();
+  },
 };
 </script>
 

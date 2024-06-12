@@ -114,7 +114,7 @@
             </p>
             <p style="font-size: 20px">500g. | 30Bs.</p>
             <button class="btn-nav">
-              <router-link to="/categoria/40">¡Pruebalo¡</router-link>
+              <router-link to="/categoria/5">¡Pruebalo¡</router-link>
             </button>
           </div>
           <div class="col-sm-12 col-md-5 d-sm-block d-none">
@@ -210,7 +210,7 @@
             </p>
             <p style="font-size: 20px">250g. | 40Bs.</p>
             <button class="btn-nav">
-              <router-link to="/categoria/41">¡Pruebalo¡</router-link>
+              <router-link to="/categoria/6">¡Pruebalo¡</router-link>
             </button>
           </div>
           <div class="col-sm-12 col-md-5 d-sm-block d-none">

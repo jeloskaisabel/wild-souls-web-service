@@ -76,8 +76,7 @@
               placeholder="Ingrese el producto"
               class="px-5 py-3 my-3 search"
               v-model="searchText"
-              v-on:keyup.enter="searchProduct()"
-              @keydown.enter.prevent=""
+              @keyup.enter="searchProduct"
             />
             <h2>Detalles de la orden:</h2>
             <ul class="p-0">
@@ -150,35 +149,33 @@
     </div>
   </div>
 </template>
+
 <script>
 import { api } from '@/config/site.config';
 import { storageSave, storageGet } from '@/services/storage.js';
+
 export default {
   name: 'GiftCardPage',
   data() {
     return {
-      userId: 24,
       productsCart: storageGet('wildBox') || [],
       products: [],
-      searchText: null,
+      searchText: '',
       wildFriend: '',
       dedication: '',
-      wildBoxOrder : '',
+      wildBoxOrder: '',
       phone: '59174913903',
     };
   },
   methods: {
     cargarProductos() {
-      api.get('products/' + this.userId + '/getAll').then((response) => {
+      api.get('products/getAll').then((response) => {
         this.products = response.data.products;
       });
     },
     searchProduct() {
       if (this.searchText !== '') {
-        let apiParams = {
-          s: this.searchText,
-        };
-        api.get('products/' + this.userId + '/search', { params: apiParams }).then((response) => {
+        api.get('products/search', { params: { query: this.searchText } }).then((response) => {
           this.products = response.data.products;
         });
       } else {
@@ -204,7 +201,7 @@ export default {
       let currentProductsCart = storageGet('wildBox');
       currentProductsCart.forEach((currentProd) => {
         if (currentProd.id === id) {
-          currentProd.quantity = currentProd.quantity + 1;
+          currentProd.quantity += 1;
         }
       });
       this.productsCart = [...currentProductsCart];
@@ -214,7 +211,7 @@ export default {
       let currentProductsCart = storageGet('wildBox');
       currentProductsCart.forEach((currentProd) => {
         if (currentProd.id === id && currentProd.quantity > 0) {
-          currentProd.quantity = currentProd.quantity - 1;
+          currentProd.quantity -= 1;
         }
       });
       this.productsCart = [...currentProductsCart];
@@ -222,38 +219,27 @@ export default {
     },
     removeProduct(id) {
       let currentProductsCart = storageGet('wildBox');
-      currentProductsCart.splice(
-        currentProductsCart.findIndex(function (i) {
-          return i.id === id;
-        }),
-        1,
-      );
+      currentProductsCart = currentProductsCart.filter((prod) => prod.id !== id);
       this.productsCart = [...currentProductsCart];
       storageSave('wildBox', currentProductsCart);
     },
-    productsOrder(){
-      for(let x in this.productsCart){
-        this.wildBoxOrder += '-' + this.productsCart[x].quantity + ' '+ this.productsCart[x].product_name + '\n';
-      }
+    productsOrder() {
+      this.wildBoxOrder = this.productsCart.map((prod) => `- ${prod.quantity} ${prod.product_name}`).join('\n');
     },
-    submitOrder(){
-        this.productsOrder();
-        let message = 'Mi Wild Box debe contener:\n' + this.wildBoxOrder + '\nMi amigo wild es: ' + this.wildFriend + '\nLa dedicatoria es: ' + this.dedication;
-        let link = 'https://api.whatsapp.com/send?phone=' + this.phone + '&text=' + encodeURIComponent(message);
-        window.location = link;
-        console.log(message);
-      },
+    submitOrder() {
+      this.productsOrder();
+      let message = `Mi Wild Box debe contener:\n${this.wildBoxOrder}\nMi amigo wild es: ${this.wildFriend}\nLa dedicatoria es: ${this.dedication}`;
+      let link = `https://api.whatsapp.com/send?phone=${this.phone}&text=${encodeURIComponent(message)}`;
+      window.location = link;
+      console.log(message);
+    },
   },
-  computed: {},
-  watch: {},
-  created() {},
-  mounted() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  created() {
     this.cargarProductos();
   },
-  // Se pueden utilizar estos hooks para el ciclo de vida
-  // beforeCreate, created, beforeMount, mounted, beforeUpdate, updated
-  // activated, deactivated, beforeUnmount, unmounted
+  mounted() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  },
 };
 </script>
 

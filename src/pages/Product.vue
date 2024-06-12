@@ -1,35 +1,34 @@
 <template>
-<div class="row" style="background-color:#fee799">
-  <div class="col-12">
-    <div class="container" >
-    <div class="row d-flex align-items-center m-5" style="height: 80vh">
-      <div class="col-sm-12 col-md-5">
-        <h1>{{ product.product_name }}</h1>
-        <p>{{product.product_description}}</p>
-      </div>
-      <div class="col-sm-12 col-md-4">
-        <img :src="product.product_image" class="product-img-info img-fluid" />
-      </div>
-      <div class="col-sm-12 col-md-3" align="center">
-        <h2 class="text-right">{{ product.product_price }} Bs.</h2>
-        <button class="btn-product-buy m-2" align="center" @click="buyProduct()">
-          Comprar ahora
-        </button>
-        <button class="btn-product-buy m-2" align="center"  @click="addToCart(product.id, product)">
-          Añadir a mi carrito
-        </button>
-        
+  <div class="row" style="background-color:#fee799">
+    <div class="col-12">
+      <div class="container">
+        <div class="row d-flex align-items-center m-5" style="height: 80vh">
+          <div class="col-sm-12 col-md-5">
+            <h1>{{ product.product_name }}</h1>
+            <p>{{product.product_description}}</p>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <img :src="product.product_image" class="product-img-info img-fluid" />
+          </div>
+          <div class="col-sm-12 col-md-3" align="center">
+            <h2 class="text-right">{{ product.product_price }} Bs.</h2>
+            <button class="btn-product-buy m-2" align="center" @click="buyProduct()">
+              Comprar ahora
+            </button>
+            <button class="btn-product-buy m-2" align="center" @click="addToCart(product.id, product)">
+              Añadir a mi carrito
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  </div>
-  
-</div>
-  
 </template>
+
 <script>
 import { api } from '@/config/site.config';
 import { storageSave, storageGet } from '@/services/storage.js';
+
 export default {
   name: 'ProductPage',
   props: ['id'],
@@ -41,7 +40,7 @@ export default {
     };
   },
   methods: {
-    buyProduct(){
+    buyProduct() {
       let message = '¡Hola! quiero comprar el producto: ' + this.product.product_name + ' por el precio de ' + this.product.product_price + " Bs.";
       let link = 'https://api.whatsapp.com/send?phone=' + this.phone + '&text=' + encodeURIComponent(message);
       window.location = link;
@@ -55,26 +54,24 @@ export default {
         quantity: 1,
       };
       let currentProductsCart = storageGet('cart') || [];
-      if (!currentProductsCart.find((prod) => prod.id === id)) {
-        let newProductsCart = [...currentProductsCart, newProduct];
-        this.productsCart = newProductsCart;
-        storageSave('cart', newProductsCart);
+      let existingProduct = currentProductsCart.find(prod => prod.id === id);
+      if (existingProduct) {
+        existingProduct.quantity++;
+      } else {
+        currentProductsCart.push(newProduct);
       }
-    },
-    
+      this.productsCart = [...currentProductsCart];
+      storageSave('cart', currentProductsCart);
+    }
   },
-  computed: {},
-  watch: {},
-  created() {},
+  created() {
+    api.get('products/getProduct/' + this.id).then((response) => {
+      this.product = response.data.product;
+    });
+  },
   mounted() {
-    window.scrollTo({top:0, behavior: 'smooth'});
-    api
-      .get('products/getProduct/' + this.id)
-      .then((response) => (this.product = response.data.product));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   },
-  // Se pueden utilizar estos hooks para el ciclo de vida
-  // beforeCreate, created, beforeMount, mounted, beforeUpdate, updated
-  // activated, deactivated, beforeUnmount, unmounted
 };
 </script>
 

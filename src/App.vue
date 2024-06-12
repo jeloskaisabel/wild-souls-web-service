@@ -45,7 +45,7 @@
       </div>
 
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title m-3" id="">categorías</h5>
+        <h5 class="offcanvas-title m-3" id="">Categorías</h5>
       </div>
       <div class="offcanvas-body mx-3 mb-3">
         <template v-for="(navOption, index) in categoriesMenu" :key="index">
@@ -184,6 +184,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import './assets/scss/stylesheet.scss';
 import { api } from '@/config/site.config';
@@ -194,11 +195,10 @@ export default {
   data() {
     return {
       categoriesMenu: [],
-      userId: 24,
       showMenu1: false,
       showMenu2: false,
       productsCart: storageGet('cart') || [],
-      cartOrder : '',
+      cartOrder: '',
       phone: '59174913903',
     };
   },
@@ -208,16 +208,16 @@ export default {
       this.$router.push('/');
     },
     showOffcanvasMenu1() {
-      this.showMenu1 ? (this.showMenu1 = false) : (this.showMenu1 = true);
+      this.showMenu1 = !this.showMenu1;
     },
     showOffcanvasMenu2() {
-      this.showMenu2 ? (this.showMenu2 = false) : (this.showMenu2 = true);
+      this.showMenu2 = !this.showMenu2;
     },
     addAmount(id) {
       let currentProductsCart = storageGet('cart');
       currentProductsCart.forEach((currentProd) => {
         if (currentProd.id === id) {
-          currentProd.quantity = currentProd.quantity + 1;
+          currentProd.quantity++;
         }
       });
       this.productsCart = [...currentProductsCart];
@@ -227,7 +227,7 @@ export default {
       let currentProductsCart = storageGet('cart');
       currentProductsCart.forEach((currentProd) => {
         if (currentProd.id === id && currentProd.quantity > 0) {
-          currentProd.quantity = currentProd.quantity - 1;
+          currentProd.quantity--;
         }
       });
       this.productsCart = [...currentProductsCart];
@@ -235,27 +235,20 @@ export default {
     },
     removeProduct(id) {
       let currentProductsCart = storageGet('cart');
-      currentProductsCart.splice(
-        currentProductsCart.findIndex(function (i) {
-          return i.id === id;
-        }),
-        1,
-      );
+      currentProductsCart = currentProductsCart.filter(prod => prod.id !== id);
       this.productsCart = [...currentProductsCart];
       storageSave('cart', currentProductsCart);
     },
-    productsOrder(){
-      for(let x in this.productsCart){
-        this.cartOrder += '- ' + this.productsCart[x].quantity + ' '+ this.productsCart[x].product_name + '\n';
-      }
+    productsOrder() {
+      this.cartOrder = this.productsCart.map(product => `- ${product.quantity} ${product.product_name}`).join('\n');
     },
-    submitOrder(){
-        this.productsOrder();
-        let message = '¡Hola Wild Souls!\nQuiero ordenar:\n' + this.cartOrder + '\n TOTAL: ' + this.totalPrice + 'Bs.';
-        let link = 'https://api.whatsapp.com/send?phone=' + this.phone + '&text=' + encodeURIComponent(message);
-        window.location = link;
-        console.log(message);
-      },
+    submitOrder() {
+      this.productsOrder();
+      let message = `¡Hola Wild Souls!\nQuiero ordenar:\n${this.cartOrder}\nTOTAL: ${this.totalPrice} Bs.`;
+      let link = `https://api.whatsapp.com/send?phone=${this.phone}&text=${encodeURIComponent(message)}`;
+      window.location = link;
+      console.log(message);
+    },
   },
   computed: {
     loggedIn() {
@@ -263,49 +256,30 @@ export default {
     },
     navOptions() {
       let navOptions = [
-        {
-          route: '/',
-          text: 'Inicio',
-        },
-        {
-          route: '/sobre-nosotros',
-          text: 'Sobre nosotros',
-        },
-        {
-          route: '/gift-card',
-          text: 'Gift Card',
-        },
-        {
-          route: '/recetas',
-          text: 'Recetas',
-        },
+        { route: '/', text: 'Inicio' },
+        { route: '/sobre-nosotros', text: 'Sobre nosotros' },
+        { route: '/gift-card', text: 'Gift Card' },
+        { route: '/recetas', text: 'Recetas' },
       ];
       if (this.loggedIn) {
-        // se pueden agregar opciones extra cuando inicie sesión
         navOptions = [...navOptions];
       }
       return navOptions;
     },
-    totalPrice () {
+    totalPrice() {
       return this.productsCart.reduce((totalPrice, p) => {
         return totalPrice + parseFloat(p.product_price) * p.quantity;
       }, 0).toFixed(2);
-    }
+    },
   },
-  watch: {},
   mounted() {
-    api.get('categories/' + this.userId + '/getAll').then((response) => {
-      for (let x in response.data.categories) {
-        this.categoriesMenu.push({
-          route: '/categoria/' + response.data.categories[x].id,
-          text: response.data.categories[x].category_name,
-        });
-      }
+    api.get('categories/getAll').then((response) => {
+      this.categoriesMenu = response.data.categories.map(category => ({
+        route: `/categoria/${category.id}`,
+        text: category.category_name,
+      }));
     });
   },
-  // Se pueden utilizar estos hooks para el ciclo de vida
-  // beforeCreate, created, beforeMount, mounted, beforeUpdate, updated
-  // activated, deactivated, beforeUnmount, unmounted
 };
 </script>
 

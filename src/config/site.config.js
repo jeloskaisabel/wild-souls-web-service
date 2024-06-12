@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: process.env.VUE_APP_PUBLIC_URL_API,
+  baseURL: 'http://192.168.0.18:3000/', // Direccion IP
 });
+
 
 export { api };

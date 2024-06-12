@@ -41,30 +41,21 @@
     </div>
   </div>
 </template>
+
 <script>
 import json from '../recipes.json';
+
 export default {
   name: 'RecetasPage',
-  components: {},
   data() {
     return {
       recipes: json.recipes,
     };
   },
-  methods: {},
-  computed: {},
-  watch: {},
-  created() {},
   mounted() {
-    window.scrollTo({top:0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     console.log(this.recipes);
-    
-     
-    
   },
-  // Se pueden utilizar estos hooks para el ciclo de vida
-  // beforeCreate, created, beforeMount, mounted, beforeUpdate, updated
-  // activated, deactivated, beforeUnmount, unmounted
 };
 </script>
 
